@@ -1,16 +1,10 @@
 file=template
 
-${file}.pdf: ${file}.tex mybib.bib preamble.tex appendix.pdf
+${file}.pdf: ${file}.tex mybib.bib preamble.tex
 	pdflatex ${file}
 	bibtex   ${file}
 	pdflatex ${file}
 	pdflatex ${file}
-
-appendix.pdf: appendix.tex preamble.tex mybib.bib
-	pdflatex appendix
-	bibtex appendix
-	pdflatex appendix
-	pdflatex appendix
 
 .PHONY: clean
 clean:
